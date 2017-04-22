@@ -18,14 +18,14 @@ collisions is passed.
 ## Keyword Arguments
 * `sleeptime` : Time passed to `sleep()` between each collision.
 * `col_to_plot` : How many previous collisions are shown during the animation.
-* `savefigs` : Save .png figures to enable the creation of animation afterwards.
-  **WARNING:** currently the .gif production has to be made by the user!
+* `savefigs::Bool` : If `true` save .png figures to enable the creation of animation afterwards.
+  (currently the .gif production has to be made by the user!)
 * `savename` : Name (**including path!**) of the figures to be produced. The ending
   "\_i.png" will be attached to all figures.
 * `particle_kwargs` : Either a Dict{Symbol, Any} or a vector of Tuple{Symbol, Any}.
   Keywords passed into `plot_particle()`.
 * `orbit_kwargs` : Either a Dict{Symbol, Any} or a Vector of Tuple{Symbol, Any}.
-  Keywords passed into `PyPlot.plot()` which plots the orbit of the particle.
+  Keywords passed into `PyPlot.plot()` which plots the orbit of the particle (`line` object).
 """
 function animate_evolution(p::AbstractParticle, bt, colnumber;
   sleeptime = 0.1, col_to_plot = 5, savefigs = false, savename = "",
