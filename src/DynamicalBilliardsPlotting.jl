@@ -7,7 +7,7 @@ using PyPlot, DynamicalBilliards
 
 include("obstacles.jl")
 include("billiards.jl")
-include("particle.jl")
+include("particles.jl")
 include("animations.jl")
 
 end
