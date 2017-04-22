@@ -13,3 +13,4 @@ script:
   - julia -e 'ENV["PYTHON"]=""; Pkg.add("PyCall"); Pkg.add("PyPlot"); using PyPlot;'
   - julia -e 'Pkg.add("DynamicalBilliards")'
   - julia -e 'Pkg.clone(pwd())'
+  - julia -e 'Pkg.test("DynamicalBilliards")'
