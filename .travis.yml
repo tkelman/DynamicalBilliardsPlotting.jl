@@ -12,5 +12,5 @@ script:
   - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
   - julia -e 'ENV["PYTHON"]=""; Pkg.add("PyCall"); Pkg.add("PyPlot"); using PyPlot;'
   - julia -e 'Pkg.add("DynamicalBilliards"); Pkg.checkout("DynamicalBilliards")'
-  - julia -e 'Pkg.clone(pwd())'
+  - julia -e 'using DynamicalBilliards; Pkg.clone(pwd())'
   - julia -e 'Pkg.test("DynamicalBilliardsPlotting")'
