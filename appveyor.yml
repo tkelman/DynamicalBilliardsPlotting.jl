@@ -11,7 +11,7 @@ branches:
 notifications:
   - provider: Email
     on_build_success: false
-    on_build_failure: false
+    on_build_failure: true
     on_build_status_changed: false
 
 install:
@@ -27,8 +27,6 @@ build_script:
   - IF EXIST .git\shallow (git fetch --unshallow)
   - C:\projects\julia\bin\julia -e "ENV[\"PYTHON\"]=\"\"; Pkg.add(\"PyCall\"); Pkg.build(\"PyCall\");"
   - C:\projects\julia\bin\julia -e "Pkg.add(\"PyPlot\"); using PyPlot;"
+  - C:\projects\julia\bin\julia -e "Pkg.add(\"DynamicalBilliards\"); using DynamicalBilliards;"
   - C:\projects\julia\bin\julia -e "versioninfo();
-      Pkg.clone(pwd(), \"DynamicalBilliards\"); Pkg.build(\"DynamicalBilliards\")"
-
-test_script:
-  - C:\projects\julia\bin\julia -e "Pkg.test(\"DynamicalBilliards\")"
+      Pkg.clone(pwd(), \"DynamicalBilliardsPlotting\"); Pkg.build(\"DynamicalBilliardsPlotting\")"
