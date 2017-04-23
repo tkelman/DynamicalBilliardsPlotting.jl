@@ -27,8 +27,6 @@ build_script:
   - IF EXIST .git\shallow (git fetch --unshallow)
   - C:\projects\julia\bin\julia -e "ENV[\"PYTHON\"]=\"\"; Pkg.add(\"PyCall\"); Pkg.build(\"PyCall\");"
   - C:\projects\julia\bin\julia -e "Pkg.add(\"PyPlot\"); using PyPlot;"
-  - C:\projects\julia\bin\julia -e "Pkg.add(\"DynamicalBilliards\");"
-  - C:\projects\julia\bin\julia -e "using DynamicalBilliards;"
   - C:\projects\julia\bin\julia -e "versioninfo();
       Pkg.clone(pwd(), \"DynamicalBilliardsPlotting\"); Pkg.build(\"DynamicalBilliardsPlotting\")"
 
